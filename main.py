@@ -13,7 +13,7 @@ def flip(row, col):
             if board[row + dr*i][col + dc*i] == player:
                 for j in range(1, i):
                     board[row + dr*j][col + dc*j] = 'grey'
-                fliped = True
+                    fliped = True
                 break
             elif board[row + dr*i][col + dc*i] == ' ':
                 break
