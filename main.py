@@ -21,7 +21,7 @@ def flip(row, col):
     if fliped:
         board[row][col] = player
 
-        for i in range(0, 255, 2):
+        for i in range(0, 255, 3):
             display(i if player == 'O' else 255-i)
 
         for i in range(len(board)):
@@ -32,10 +32,8 @@ def flip(row, col):
         player = 'X' if player == 'O' else 'O'
 
 def display(grey_color = None):
-    #live time update of mouse position
-    mx, my = pg.mouse.get_pos()
 
-    window.fill((50, 255, 50))
+    window.fill((0, 220, 0))
 
     for i, row in enumerate(board):
         for j, col in enumerate(row):
