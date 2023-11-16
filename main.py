@@ -1,4 +1,4 @@
-import copy, pygame as pg
+import copy, pygame as pg, time
 from math import pi
 from turtle import width
 
@@ -12,8 +12,13 @@ def flip(row, col):
                 break
             if board[row + dr*i][col + dc*i] == player:
                 for j in range(1, i):
+                    board[row + dr*j][col + dc*j] = 'grey'
+                    display()
+                    time.sleep(.04)
                     board[row + dr*j][col + dc*j] = player
                     fliped = True
+                    display()
+                    time.sleep(.02)
             elif board[row + dr*i][col + dc*i] == ' ' or board[row + dr*i][col + dc*i] == player:
                 break
 
@@ -30,6 +35,8 @@ def display():
                 pg.draw.circle(window, (1, 0, 0), ((j + 1/2)*piece_size, (i + 1/2)*piece_size), piece_size*.45)
             if col == 'O':
                 pg.draw.circle(window, (255, 255, 255), ((j + 1/2)*piece_size, (i + 1/2)*piece_size), piece_size*.45)
+            if col == 'grey':
+                pg.draw.circle(window, (155, 155, 155), ((j + 1/2)*piece_size, (i + 1/2)*piece_size), piece_size*.45)
 
     for i in range(0, max(width, height), piece_size):
         pg.draw.line(window, (150, 255, 100), (0, i), (width, i), 2)
